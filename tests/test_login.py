@@ -4,7 +4,7 @@ from config.config import BASE_URL, USERNAME, PASSWORD
 from pages.login_page import LoginPage
 
 @pytest.fixture
-def setup(driver):
+def setup():
     driver = get_driver()
     driver.get(BASE_URL)
     yield driver
