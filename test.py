@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common import by, keys
 
+from drivers import chrome_path
 # Path to Chrome for Testing
 chrome_path = "/opt/google-chrome-test/chrome"
 service = Service("/usr/local/bin/chromedriver")
