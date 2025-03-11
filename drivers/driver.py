@@ -1,13 +1,17 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 
-# Path to Chrome for Testing
-chrome_path = "/opt/google-chrome-test/chrome"
-service = Service("/usr/local/bin/chromedriver")
+def get_driver():
+    """Initialize and return a WebDriver instance."""
+    
+    chrome_path = "/opt/google-chrome-test/chrome"
 
-# Set Chrome options
-options = webdriver.ChromeOptions()
-options.binary_location = chrome_path
-
-# Start WebDriver
-driver = webdriver.Chrome(service=service, options=options)
+    options = webdriver.ChromeOptions()
+    options.binary_location = chrome_path
+    options.add_argument("--incognito")  # Open in incognito mode
+   
+    # Initialize WebDriver
+    service = Service("/usr/local/bin/chromedriver")
+    driver = webdriver.Chrome(service=service, options=options)
+    
+    return driver
