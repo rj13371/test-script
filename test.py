@@ -21,3 +21,5 @@ element.send_keys("Test input")
 element.send_keys(keys.Keys.RETURN)  # Press Enter (if needed)
 
 print(element)
+
+driver.close()
