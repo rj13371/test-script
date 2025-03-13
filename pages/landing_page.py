@@ -21,3 +21,14 @@ class LandingPage:
         WebDriverWait(self.driver, 3).until(
             EC.element_to_be_clickable(self.logout_button)
         ).click()
+
+    def add_to_cart(self, item_container):
+        self.container = item_container
+        print(self.container)
+
+        WebDriverWait(self.driver, 3).until(
+            EC.presence_of_element_located((By.XPATH, f"//div[contains(@class, 'inventory_item')]//div[contains(text(), '{item_container}')]")))
+        
+        container = self.driver.find_element(By.XPATH, f"//div[contains(@class, 'inventory_item')]//div[contains(text(), '{item_container}')]")
+        button = container.find_element(By.XPATH, "//button[text()='ADD TO CART']")
+        button.click()

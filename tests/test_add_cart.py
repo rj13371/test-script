@@ -10,9 +10,9 @@ def setup():
     yield driver
     driver.quit()
 
-def test_logout(setup):
+def test_add_to_cart(setup):
     landing_page = LandingPage(setup)
-    landing_page.logout()
+    landing_page.add_to_cart("Sauce Labs Backpack")
     
     # Add assertions to confirm login success
     assert "Swag Labs" in setup.title
