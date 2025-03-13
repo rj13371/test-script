@@ -6,8 +6,8 @@ from selenium.webdriver.support import expected_conditions as EC
 class LandingPage:
     def __init__(self, driver) -> None:
         self.driver = driver
-        self.menu_button = (By.XPATH, "/html/body/div[1]/div[1]/div/div[3]/div/button")
-        self.logout_button = (By.XPATH, "/html/body/div[1]/div[1]/div/div[2]/div[1]/nav/a[3]")
+        self.menu_button = (By.XPATH, "//button[text()='Open Menu']")
+        self.logout_button = (By.XPATH, "//a[text()='Logout']")
     def open(self, url):
         self.driver.get(url)
     
