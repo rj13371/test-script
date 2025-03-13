@@ -8,7 +8,7 @@ def get_driver():
 
     options = webdriver.ChromeOptions()
     options.binary_location = chrome_path
-    options.add_argument("--incognito")  # Open in incognito mode
+    #options.add_argument("--incognito")  # Open in incognito mode
    
     # Initialize WebDriver
     service = Service("/usr/local/bin/chromedriver")
