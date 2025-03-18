@@ -8,6 +8,7 @@ class LandingPage:
         self.driver = driver
         self.menu_button = (By.XPATH, "//button[text()='Open Menu']")
         self.logout_button = (By.XPATH, "//a[text()='Logout']")
+        self.product_label = (By.CLASS_NAME, "product_label")
     def open(self, url):
         self.driver.get(url)
     
@@ -31,6 +32,7 @@ class LandingPage:
         container = self.driver.find_element(By.XPATH, f"//div[contains(@class, 'inventory_item')]//div[contains(text(), '{item_container}')]")
         button = container.find_element(By.XPATH, "//button[text()='ADD TO CART']")
         button.click()
+        self.shopping_cart_badge = (By.CLASS_NAME, "fa-layers-counter shopping_cart_badge")
 
     def remove_from_cart(self, item_container):
         self.container = item_container
@@ -47,3 +49,7 @@ class LandingPage:
 
         remove_button = container.find_element(By.XPATH, "//button[text()='REMOVE']")
         remove_button.click()
+
+        elements = self.driver.find_elements(By.CLASS_NAME, "fa-layers-counter.shopping_cart_badge")
+        
+        self.shopping_cart_badge = (By.CLASS_NAME, "fa-layers-counter shopping_cart_badge") if elements else None

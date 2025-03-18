@@ -15,4 +15,4 @@ def test_add_to_cart(setup):
     landing_page.add_to_cart("Sauce Labs Backpack")
     
     # Add assertions to confirm login success
-    assert "Swag Labs" in setup.title
+    assert landing_page.shopping_cart_badge

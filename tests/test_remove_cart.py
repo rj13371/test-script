@@ -14,5 +14,5 @@ def test_remove_from_cart(setup):
     landing_page = LandingPage(setup)
     landing_page.remove_from_cart("Sauce Labs Backpack")
     
-    # Add assertions to confirm login success
-    assert "Swag Labs" in setup.title
+    # Add assertion to check if cart is empty
+    assert landing_page.shopping_cart_badge is None
